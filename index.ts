@@ -1,4 +1,4 @@
-import { of, timer, interval, BehaviorSubject, ReplaySubject, Subject } from 'rxjs'; 
+import { of, timer, interval, BehaviorSubject, ReplaySubject, Subject, throwError, VirtualAction, VirtualTimeScheduler } from 'rxjs'; 
 import { map, scan, takeUntil, mergeMap, 
 share, shareReplay, filter, concatMap, withLatestFrom, retry, retryWhen, repeatWhen, race, reduce, repeat, refCount
 , publishLast, pairwise, pluck, publishBehavior, publishReplay, partition, publish, audit, skip,
@@ -38,4 +38,4 @@ const source$ = of(1, 2);
 const inner$ = of('A', 'B', 'C');
 source$.pipe(
   mergeMap(() => inner$)
-).subscribe(x => console.log(x))
+).subscribe(x => console.log(x));
